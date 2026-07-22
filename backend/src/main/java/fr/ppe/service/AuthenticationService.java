@@ -27,8 +27,8 @@ public class AuthenticationService {
                 )
         );
 
-        User user = userRepository.findByUsername(request.getusername())
-                .orElseThrow();
+        User user = userRepository.findByUsername(request.getUsername())
+        .orElseThrow();
 
         String token = jwtService.generateToken(user.getUsername());
 
