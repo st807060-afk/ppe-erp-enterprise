@@ -55,3 +55,6 @@ CREATE TABLE suppliers (
     postal_code VARCHAR(20),
     country VARCHAR(100)
 );
+
+INSERT INTO roles (name) VALUES ('ADMIN');
+INSERT INTO roles (name) VALUES ('USER');
