@@ -58,3 +58,18 @@ CREATE TABLE suppliers (
 
 INSERT INTO roles (name) VALUES ('ADMIN');
 INSERT INTO roles (name) VALUES ('USER');
+
+INSERT INTO users (
+    username,
+    password,
+    email,
+    enabled,
+    role_id
+)
+VALUES (
+    'admin',
+    '$2a$10$7EqJtq98hPqEX7fNZaFWoOHiH6L6VQ0m1Y9D4V7R2xQ4f3FvQ3i5K',
+    'admin@erp.com',
+    TRUE,
+    1
+);
