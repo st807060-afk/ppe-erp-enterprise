@@ -1,0 +1,35 @@
+spring:
+  application:
+    name: PPE ERP Enterprise
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/ppe_erp
+    username: ppe
+    password: ppe
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+
+    show-sql: true
+
+    properties:
+      hibernate:
+        format_sql: true
+
+  flyway:
+    enabled: true
+
+server:
+  port: 8080
+
+springdoc:
+  swagger-ui:
+    path: /swagger
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
