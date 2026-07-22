@@ -22,12 +22,12 @@ public class AuthenticationService {
 
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
-                        request.username(),
-                        request.password()
+                        request.getUsername(),
+                        request.getPassword()
                 )
         );
 
-        User user = userRepository.findByUsername(request.username())
+        User user = userRepository.findByUsername(request.getusername())
                 .orElseThrow();
 
         String token = jwtService.generateToken(user.getUsername());
