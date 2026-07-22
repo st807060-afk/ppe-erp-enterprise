@@ -30,3 +30,16 @@ CREATE TABLE products (
     category VARCHAR(255),
     description TEXT
 );
+
+CREATE TABLE customers (
+    id BIGSERIAL PRIMARY KEY,
+    first_name VARCHAR(255) NOT NULL,
+    last_name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) UNIQUE,
+    phone VARCHAR(50),
+    company VARCHAR(255),
+    address VARCHAR(255),
+    city VARCHAR(255),
+    postal_code VARCHAR(20),
+    country VARCHAR(100)
+);
