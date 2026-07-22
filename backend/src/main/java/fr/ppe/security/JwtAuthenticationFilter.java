@@ -42,29 +42,29 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
         String token = header.substring(7);
 
-        if (jwtService.validateToken(token)) {
+        String username = jwtService.extractUsername(token);
 
-            String username = jwtService.extractUsername(token);
+UserDetails userDetails =
+        userDetailsService.loadUserByUsername(username);
 
-            UserDetails userDetails =
-                    userDetailsService.loadUserByUsername(username);
+if (jwtService.isTokenValid(token, userDetails)) {
 
-            UsernamePasswordAuthenticationToken authentication =
-                    new UsernamePasswordAuthenticationToken(
-                            userDetails,
-                            null,
-                            userDetails.getAuthorities());
+    UsernamePasswordAuthenticationToken authentication =
+            new UsernamePasswordAuthenticationToken(
+                    userDetails,
+                    null,
+                    userDetails.getAuthorities());
 
-            authentication.setDetails(
-                    new WebAuthenticationDetailsSource()
-                            .buildDetails(request));
+    authentication.setDetails(
+            new WebAuthenticationDetailsSource()
+                    .buildDetails(request));
 
-            SecurityContextHolder.getContext()
-                    .setAuthentication(authentication);
+    SecurityContextHolder.getContext()
+            .setAuthentication(authentication);
+}
         }
 
         filterChain.doFilter(request, response);
     }
 }
 
-package fr.ppe.security;
