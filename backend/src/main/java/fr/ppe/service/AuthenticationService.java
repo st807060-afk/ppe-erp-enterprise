@@ -32,6 +32,6 @@ public class AuthenticationService {
 
         String token = jwtService.generateToken(user.getUsername());
 
-        return new LoginResponse(token, "Bearer");
+        return new LoginResponse(token);
     }
 }
