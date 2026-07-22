@@ -43,3 +43,15 @@ CREATE TABLE customers (
     postal_code VARCHAR(20),
     country VARCHAR(100)
 );
+
+CREATE TABLE suppliers (
+    id BIGSERIAL PRIMARY KEY,
+    company_name VARCHAR(255) NOT NULL,
+    contact_name VARCHAR(255),
+    email VARCHAR(255) UNIQUE,
+    phone VARCHAR(50),
+    address VARCHAR(255),
+    city VARCHAR(255),
+    postal_code VARCHAR(20),
+    country VARCHAR(100)
+);
