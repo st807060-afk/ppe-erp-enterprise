@@ -1,0 +1,9 @@
+{
+  "email": "admin@erp.com",
+  "password": "password"
+}
+
+{
+  "token": "eyJhbGciOiJIUzI1NiJ9...",
+  "type": "Bearer"
+}
